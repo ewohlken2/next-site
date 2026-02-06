@@ -1,6 +1,6 @@
 .section {
   min-height: 50vh;
-  background: var(--primary-dark);
+  background: var(--bg);
 }
 
 .section-experience .section-content {
@@ -11,38 +11,26 @@
   scroll-margin-top: 5.3rem;
 }
 
-.section-about,
-.section-experience,
-.section-blog {
-  background: var(--bg);
-}
-
 .section-contact {
   background: var(--yellow);
-
   h2 {
     color: var(--secondary-dark);
   }
-
   .content {
     padding: 2rem;
   }
-
   .section-content {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
   .links {
     display: flex;
     flex-direction: column;
   }
-
   .link {
     margin-bottom: 1.5rem;
     display: inline-block;
-
     &::before {
       color: var(--secondary-dark);
       content: "+";
@@ -55,7 +43,6 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 5rem 2rem;
-
   color: var(--secondary-dark);
 }
 
@@ -70,4 +57,9 @@
 
 .intro-header-2 {
   font-size: 1.5rem;
+}
+
+.section-about,
+.section-experience {
+  background: #fdf0d5;
 }
