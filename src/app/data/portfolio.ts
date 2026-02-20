@@ -9,6 +9,14 @@ export interface PortfolioWebsite {
 
 export const portfolioWebsites: PortfolioWebsite[] = [
   {
+    id: "viberational",
+    title: "vibeRational",
+    description: "A portfolio site made to showcase vibe coded projects.",
+    image: "/viberational.png",
+    url: "https://viberational.com/",
+    technologies: ["TypeScript", "React", "Three.Js", "Next.js"],
+  },
+  {
     id: "portfolio-1",
     title: "HR Compliance Team",
     description:

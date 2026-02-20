@@ -1,43 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import Page from "../page";
 
-jest.mock("@vibe-rational/medusae", () => ({
+jest.mock("../about/page", () => ({
   __esModule: true,
-  Medusae: () => <div data-testid="medusae" />,
+  default: () => <div data-testid="about-homepage">About Homepage</div>,
 }));
 
-test("renders Medusae inside a div", () => {
-  const { container } = render(<Page />);
-
-  expect(container.firstChild?.nodeName).toBe("DIV");
-  expect(screen.getByTestId("medusae")).toBeInTheDocument();
-});
-
-test("renders centered landing text", () => {
+test("uses the about page for the homepage route", () => {
   render(<Page />);
 
-  const heading = screen.getByRole("heading", { name: /Vibe\s*Rational/i });
-  expect(heading).toBeInTheDocument();
-  expect(heading).toHaveClass("landing-text");
-});
-
-test("renders subtext and nav links as glass buttons", () => {
-  render(<Page />);
-
-  const subtext = screen.getByText("Where hype becomes reality.");
-  expect(subtext).toBeInTheDocument();
-  expect(subtext).toHaveClass("landing-subtext");
-
-  expect(screen.getByRole("link", { name: "About" })).toHaveClass(
-    "button-glass"
-  );
-  expect(screen.getByRole("link", { name: "Blog" })).toHaveClass(
-    "button-glass"
-  );
-  expect(screen.getByRole("link", { name: "Portfolio" })).toHaveClass(
-    "button-glass"
-  );
-  expect(screen.getByRole("link", { name: "Contact" })).toHaveClass(
-    "button-glass"
-  );
+  expect(screen.getByTestId("about-homepage")).toBeInTheDocument();
+  expect(screen.queryByText(/where hype becomes reality/i)).not.toBeInTheDocument();
 });
